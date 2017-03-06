@@ -41,7 +41,7 @@ def flatMap(vocab):
     return ret
 
 def calc_item_cf():
-    sents = sents_from_prefs(prefs) # LineSentence('README.md')
+    sents = sents_from_prefs(prefs)
     vocab = [s.split() for s in sents]
     model = Word2Vec(vocab, size=100, window=5, min_count=1, workers=4)
     model.save_word2vec_format(model_file, binary=False)
