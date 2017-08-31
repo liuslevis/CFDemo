@@ -48,7 +48,7 @@ def calc_item_cf():
     model = Word2Vec.load_word2vec_format(model_file, binary=False)
 
     print('基于书籍的 word2vec 协同过滤推荐')
-    for item in flatMap(vocab):
+    for item in set(flatMap(vocab)):
         print('\n根据 %s 推荐：' % item)
         for item_score in model.most_similar(positive=[item]):
             item, score = item_score
